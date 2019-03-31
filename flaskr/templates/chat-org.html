@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+  <link href="{{ url_for('static', filename='botui/build/botui.min.css') }}"     rel="stylesheet">
+  
+	<link href="botui/build/botui-theme-default.css"     rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+	<script src="https://unpkg.com/botui/build/botui.min.js"></script>
+ 
+</head>
+<body>
+<h1>Bot UI test:</h1>
+
+<div class="botui-app-container" id="botui-app" style="height :300px;">
+  <bot-ui></bot-ui>
+
+  <form name="form1" method="POST" action="http://localhost:5000/test3">
+      <input type="text" name="intext" value="" />
+      <input type="submit" value="Send">
+  </form>
+    
+</div>
+<br />
+
+</body>]
+<script src="{{ url_for('static', filename='app_chat.js') }}"></script>
+<script>
+var botui = new BotUI('botui-app') // id of container
+
+//
+botui.message.add({
+  human: true,
+  content: 'Hello World from human!'
+});
+//
+botui.message.add({
+  content: 'Hello World from bot!'
+});
+//
+botui.message.bot({ // show first message
+  delay: 200,
+  content: 'hello'
+}).then(() => {
+  console.log("#then-1");
+})
+
+</script>
+</html>
+

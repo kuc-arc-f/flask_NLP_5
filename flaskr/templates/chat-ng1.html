@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+  <link href="{{ url_for('static', filename='botui/build/botui.min.css') }}"  rel="stylesheet">
+  <link href="{{ url_for('static', filename='botui/build/botui-theme-default.css') }}"  rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+	<script src="https://unpkg.com/botui/build/botui.min.js"></script>
+  <script src="{{ url_for('static', filename='axios.min.js') }}?A2"></script>
+
+</head>
+<body>
+<h1>Bot UI test:</h1>
+
+<div class="botui-app-container" id="botui-app" style="height :300px;">
+  <bot-ui></bot-ui>
+</div>
+<!-- form -->
+<div id="app">
+  msg : {{ message }}<br />
+</div>
+
+
+<br />
+</body>
+<script>
+//console.log("#then-aaa");
+  //
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'World',
+    },
+    created:function(){
+       console.log("#create");
+    },
+    methods: {
+      update() {
+        this.message = 'Vue.js';
+      }
+    }
+  });
+
+</script>
+<!--
+<script src="{{ url_for('static', filename='app_chat.js') }}?A6"></script>
+
+-->
+</html>
+
